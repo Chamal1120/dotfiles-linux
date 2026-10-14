@@ -19,4 +19,5 @@ fi
 web_url=$(echo "$origin_url" | sed 's#git@github.com:#https://github.com/#' | sed 's#\.git##')
 
 # open the url in default browser
-open "$web_url"
+xdg-open "$web_url" >/dev/null 2>&1 &
+disown

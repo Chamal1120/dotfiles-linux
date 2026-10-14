@@ -57,18 +57,9 @@ export PATH="$ANDROID_HOME/platform-tools:$PATH"
 export PATH="$PATH:$ANDROID_HOME/cmdline-tools/latest/bin"
 
 # Flutter / Dart (FVM)
-#export PATH="$HOME/flutter-sdk/flutter/bin:$PATH"
-#export PATH="$HOME/fvm/bin:$PATH"
-#export PATH="$HOME/fvm/default/bin:$PATH"
-export PATH="$HOME/develop/bin:$PATH"
+export PATH="$HOME/develop/flutter/bin:$PATH"
 export PUB_CACHE="$HOME/.pub-cache"
 export PATH="$PATH:$PUB_CACHE/bin"
-
-# Go
-export GOROOT="$HOME/.local/go"
-export GOPATH="$HOME/go"
-export PATH="$PATH:$GOROOT/bin"
-export PATH="$PATH:$GOPATH/bin"
 
 # Maven
 export M2_HOME="/opt/maven"
@@ -91,6 +82,13 @@ export PATH="$HOME/.cargo/bin:$HOME/.bun/bin:$PATH"
 
 # Snap
 export PATH="$PATH:/snap/bin"
+
+# Golang
+export PATH=$PATH:/usr/local/go/bin
+export PATH="$PATH:$(go env GOPATH)/bin"
+
+# opencode
+export PATH=/home/chamal/.opencode/bin:$PATH
 
 # Misc tooling
 export FLASK_DEBUG=1
@@ -116,11 +114,11 @@ bindkey "^?" backward-delete-char
 # =========================
 # 4. Aliases
 # =========================
-#alias ls='eza --icons'
-#alias la='eza -a'
-#alias lla='eza -la'
-#alias ll='eza -l'
-#alias lt='eza -TL 2'
+alias ls='eza --icons'
+alias la='eza -a'
+alias lla='eza -la'
+alias ll='eza -l'
+alias lt='eza -TL 2'
 alias vim='nvim'
 alias oc='opencode'
 alias cl='claude --permission-mode bypassPermissions --model opus'
@@ -161,7 +159,7 @@ zstyle ':completions:*' squeeze-slashes true
 # 6. Plugins
 # =========================
 # Fast syntax highlighting
-#source $HOME/.zsh-plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+source $HOME/.zsh-plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 
 # FZF integration (Ctrl+T, etc.)
 source <(fzf --zsh)
@@ -175,7 +173,7 @@ bindkey -s '^g' 'gtr\n'
 # =========================
 # 8. Theme
 # =========================
-source ~/powerlevel10k/powerlevel10k.zsh-theme
+source ~/.zsh-plugins/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -187,3 +185,4 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME/bin:$PATH" ;;
 esac
 # pnpm end
+
