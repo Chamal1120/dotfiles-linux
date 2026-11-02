@@ -51,51 +51,51 @@ local servers = {
             },
         },
     },
-    basedpyright = {
-        cmd = { "basedpyright-langserver", "--stdio" },
-        filetypes = { "python" },
-        root_markers = { "pyproject.toml", "setup.py", "pyrightconfig.json", ".git" },
-        settings = {
-            basedpyright = {
-                analysis = {
-                    autoSearchPaths = true,
-                    useLibraryCodeForTypes = true,
-                    diagnosticMode = "workspace",
-                },
-            },
-        },
-        before_init = function(_, config)
-            local venv = (config.root_dir or "") .. "/.venv"
-            local python = venv .. "/bin/python"
-            if vim.fn.executable(python) == 1 then
-                config.settings = config.settings or {}
-                config.settings.python = { pythonPath = python }
-                local venv_bp = venv .. "/bin/basedpyright-langserver"
-                if vim.fn.executable(venv_bp) == 1 then
-                    config.cmd = { venv_bp, "--stdio" }
-                end
-            end
-        end,
-    },
-    --html = {
-    --    cmd = { "vscode-html-language-server", "--stdio" },
-    --    filetypes = { "html" },
-    --},
-    --cssls = {
-    --    cmd = { "vscode-css-language-server", "--stdio" },
-    --    filetypes = { "css" },
-    --},
-    --tailwindcss = {
-    --    cmd = { "tailwindcss-language-server", "--stdio" },
-    --    filetypes = {
-    --        "html",
-    --        "razor",
-    --        "typescriptreact",
-    --        "typescript",
-    --        "javascript",
-    --        "javascriptreact",
-    --    },
-    --},
+   --  basedpyright = {
+   --      cmd = { "basedpyright-langserver", "--stdio" },
+   --      filetypes = { "python" },
+   --      root_markers = { "pyproject.toml", "setup.py", "pyrightconfig.json", ".git" },
+   --      settings = {
+   --          basedpyright = {
+   --              analysis = {
+   --                  autoSearchPaths = true,
+   --                  useLibraryCodeForTypes = true,
+   --                  diagnosticMode = "workspace",
+   --              },
+   --          },
+   --      },
+   --      before_init = function(_, config)
+   --          local venv = (config.root_dir or "") .. "/.venv"
+   --          local python = venv .. "/bin/python"
+   --          if vim.fn.executable(python) == 1 then
+   --              config.settings = config.settings or {}
+   --              config.settings.python = { pythonPath = python }
+   --              local venv_bp = venv .. "/bin/basedpyright-langserver"
+   --              if vim.fn.executable(venv_bp) == 1 then
+   --                  config.cmd = { venv_bp, "--stdio" }
+   --              end
+   --          end
+   --      end,
+   --  },
+   html = {
+       cmd = { "vscode-html-language-server", "--stdio" },
+       filetypes = { "html" },
+   },
+   cssls = {
+       cmd = { "vscode-css-language-server", "--stdio" },
+       filetypes = { "css" },
+   },
+   -- tailwindcss = {
+   --     cmd = { "tailwindcss-language-server", "--stdio" },
+   --     filetypes = {
+   --         "html",
+   --         "razor",
+   --         "typescriptreact",
+   --         "typescript",
+   --         "javascript",
+   --         "javascriptreact",
+   --     },
+   -- },
     --rust_analyzer = {
     --    cmd = { "rust-analyzer" },
     --    filetypes = { "rust" },

@@ -127,6 +127,3 @@ vim.cmd [[
   highlight BlinkCmpSignatureHelpBorder guibg=#1e1e2e guifg=#89b4fa
   highlight BlinkCmpSignatureHelpActiveParameter guibg=#89b4fa guifg=#1e1e2e
 ]]
-
--- Copilot colors
--- vim.api.nvim_set_hl(0, "CopilotSuggestion", { fg = "#363535" })
